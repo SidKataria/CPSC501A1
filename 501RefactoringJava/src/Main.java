@@ -6,6 +6,12 @@
 import java.util.Scanner;
 
 public class Main {
+	public static double maxIncome;
+	public static double maxAfterExp;
+	public static double maxSavings;
+	private static double [] firstHouse = {35, 50000, 3000, 55, 100, 36, 60000, 5000, 22, 70, 0.1};
+	private static double [] secondHouse = {59, 25000, 1500, 25, 110, 62, 30000, 1000, 28, 80, 0.5};
+	private static double [] thirdHouse = {22, 35000, 2000, 35, 105, 25, 40000, 3000, 25, 28, 0.25};
 
 	public static void main (String[] args) {
 
@@ -21,16 +27,16 @@ public class Main {
 		
 
 		Family house1 = new Family();
-        double[] house1Stats = house1.makeFamily(35, 50000, 3000, 55, 100, 36, 60000, 5000, 22, 70, 0.1);
+        double[] house1Stats = house1.makeFamily(firstHouse);
         
         Family house2 = new Family();
-        double[] house2Stats = house2.makeFamily(59, 25000, 1500, 25, 110, 62, 30000, 1000, 28, 80, 0.5);
+        double[] house2Stats = house2.makeFamily(secondHouse);
         
         Family house3 = new Family();
-        double[] house3Stats = house3.makeFamily(22, 35000, 2000, 35, 105, 25, 40000, 3000, 25, 28, 0.25);
+        double[] house3Stats = house3.makeFamily(thirdHouse);
 
         //Greatest house income 
-        double maxIncome = 0;
+        maxIncome = 0;
         if (house1Stats[0] > 0 && house1Stats[0] >= house2Stats[0]) 
             maxIncome = house1Stats[0];
         else 
@@ -42,7 +48,7 @@ public class Main {
         System.out.println("Greatest income: " + maxIncome);
 
         //Greatest income after expenditure
-        double maxAfterExp = 0;
+        maxAfterExp = 0;
         if (house1Stats[1] > 0 && house1Stats[1] >= house2Stats[1]) 
             maxAfterExp = house1Stats[1];
         else 
@@ -54,7 +60,7 @@ public class Main {
         System.out.println("After savings: " + maxAfterExp);
 
         //Greatest savings
-        double maxSavings = 0;
+        maxSavings = 0;
         if (house1Stats[2] > 0 && house1Stats[2] >= house2Stats[2]) 
             maxSavings = house1Stats[2];
         else 
