@@ -1,3 +1,8 @@
+/***
+ * Name: Siddharth Kataria
+ * UCID: 30000880
+ * A java program to calculate housing statistics based on fathers and mothers salaries and expenditures
+ */
 import java.util.Scanner;
 
 public class Main {
@@ -9,54 +14,56 @@ public class Main {
 			System.out.println("Continuing");
 		}
 		else {
-			System.out.println("Exiting");
+			System.out.println("Terminating program");
 			System.exit(0); 
 		}
 		System.out.println("Calculating the greatest house income, the greatest income after expenditure and greatest savings from the given 3 families");
 		
 
 		Family house1 = new Family();
-        double[] h1 = house1.makeFamily(35, 50000, 3000, 55, 100, 36, 60000, 5000, 22, 70, 0.1);
+        double[] house1Stats = house1.makeFamily(35, 50000, 3000, 55, 100, 36, 60000, 5000, 22, 70, 0.1);
+        
         Family house2 = new Family();
-        double[] h2 = house2.makeFamily(59, 25000, 1500, 25, 110, 62, 30000, 1000, 28, 80, 0.5);
+        double[] house2Stats = house2.makeFamily(59, 25000, 1500, 25, 110, 62, 30000, 1000, 28, 80, 0.5);
+        
         Family house3 = new Family();
-        double[] h3 = house3.makeFamily(22, 35000, 2000, 35, 105, 25, 40000, 3000, 25, 28, 0.25);
+        double[] house3Stats = house3.makeFamily(22, 35000, 2000, 35, 105, 25, 40000, 3000, 25, 28, 0.25);
 
         //Greatest house income 
-        double max = 0;
-        if (h1[0] > 0 && h1[0] >= h2[0]) 
-            max = h1[0];
+        double maxIncome = 0;
+        if (house1Stats[0] > 0 && house1Stats[0] >= house2Stats[0]) 
+            maxIncome = house1Stats[0];
         else 
-            max = h2[0];
+            maxIncome = house2Stats[0];
             
-        if (h3[0] > max) 
-            max = h3[0];  
+        if (house3Stats[0] > maxIncome) 
+            maxIncome = house3Stats[0];  
             
-        System.out.println("Greatest income: " + max);
+        System.out.println("Greatest income: " + maxIncome);
 
-        //Greatest income after exp
-        max = 0;
-        if (h1[1] > 0 && h1[1] >= h2[1]) 
-            max = h1[1];
+        //Greatest income after expenditure
+        double maxAfterExp = 0;
+        if (house1Stats[1] > 0 && house1Stats[1] >= house2Stats[1]) 
+            maxAfterExp = house1Stats[1];
         else 
-            max = h2[1];
+            maxAfterExp = house2Stats[1];
             
-        if (h3[1] > max) 
-            max = h3[1];     
+        if (house3Stats[1] > maxAfterExp) 
+            maxAfterExp = house3Stats[1];     
         
-        System.out.println("After savings: " + max);
+        System.out.println("After savings: " + maxAfterExp);
 
         //Greatest savings
-        max = 0;
-        if (h1[2] > 0 && h1[2] >= h2[2]) 
-            max = h1[2];
+        double maxSavings = 0;
+        if (house1Stats[2] > 0 && house1Stats[2] >= house2Stats[2]) 
+            maxSavings = house1Stats[2];
         else 
-            max = h2[2];
+            maxSavings = house2Stats[2];
             
-        if (h3[2] > max) 
-            max = h3[2]; 
+        if (house3Stats[2] > maxSavings) 
+            maxSavings = house3Stats[2]; 
         
-        System.out.println("savings: " + max);
+        System.out.println("savings: " + maxSavings);
     }
 	
 	public static String askUser(String question) {

@@ -1,20 +1,23 @@
-
+/***
+ * Name: Siddharth Kataria
+ * UCID: 30000880
+ */
 public class Father {
     public int age;
-    public double base;
+    public double income;
     public double amount;
-    public double exp;
-    public double exp2; 
-    public double exp3;
-    public double tfsa;
+    public double expenditure1;
+    public double expenditure2; 
+    public double expenditure3;
+    public double saving;
 
-    public Father (int age, double base ) {
+    public Father (int age, double income ) {
         this.age = age;
-        this.base = base;
+        this.income = income;
     }
 
     public double AmountReturned() {
-        amount = base + age + (age * 0.12) - exp - exp2 - exp3 - (base * tfsa);
+        amount = income + age + (age * 0.12) - expenditure1 - expenditure2 - expenditure3 - (income * saving);
         return amount;
     }
 }
