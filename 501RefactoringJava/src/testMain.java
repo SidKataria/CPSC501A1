@@ -1,4 +1,5 @@
-import org.junit.Assert.*;
+import static org.junit.Assert.*;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +29,20 @@ public class testMain {
 		dadEmpty = new Father(new double [] {});
 	}
 	
-	
+    @Test
+    public void testDadSalary(){
+        assertEquals(10000, (int) dad.income);
+    }
+    @Test
+    public void testMomAge(){
+        assertEquals(25, mom.age);
+    }
+    @Test
+    public void testMomExpenditure2(){
+        assertEquals(100, (int) mom.expenditure2);
+    }
+    
+    
 	@After
 	public void tearDown() {
 		momEmpty = null;

@@ -6,9 +6,9 @@
 import java.util.Scanner;
 
 public class Main {
-	public static double maxIncome;
-	public static double maxAfterExp;
-	public static double maxSavings;
+	private static double maxIncome;
+	private static double maxAfterExp;
+	private static double maxSavings;
 	private static double [] firstHouse = {35, 50000, 3000, 55, 100, 36, 60000, 5000, 22, 70, 0.1};
 	private static double [] secondHouse = {59, 25000, 1500, 25, 110, 62, 30000, 1000, 28, 80, 0.5};
 	private static double [] thirdHouse = {22, 35000, 2000, 35, 105, 25, 40000, 3000, 25, 28, 0.25};
