@@ -3,7 +3,6 @@
  * UCID: 30000880
  */
 public class Family {
-	//public int totalAmount;
 
     public double[] makeFamily (double [] stats) 
     	{

@@ -1,12 +1,7 @@
 
 public abstract class Parent {
     protected int age;
-    protected double income;
-    protected double finalIncome;
-    protected double expenditure1;
-    protected double expenditure2; 
-    protected double expenditure3;
-    protected double savingsPercent;
+    protected double income, finalIncome, expenditure1, expenditure2, expenditure3, savingsPercent;
     
     public Parent(double [] stats, String parent) {
     	if (parent.contentEquals("mom")) {
