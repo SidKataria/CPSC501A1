@@ -7,31 +7,35 @@ public class Family {
     public double[] makeFamily (double [] stats) 
     	{
         Mother moms = new Mother(stats);
-
         Father pops = new Father(stats);
 
         double[] values = new double[3];
         
         //Base household income
-        values[0] = moms.income + pops.income;
-        
+        values[0] = householdIncome(moms,pops);
         //After expenses
         values[1] = moms.returnFinalIncome() + pops.returnFinalIncome();
-        
-        double momsave = 0.;
-        double dadsave = 0.;
-
-        //Savings
-        if (moms.age < 25) momsave = 0.05;
-        if (moms.age >= 25 && moms.age < 35 ) momsave = 0.08;
-        if (moms.age >= 35 && moms.age < 61 ) momsave = 0.15;
-
-        if (pops.age < 25) dadsave = 0.05;
-        if (pops.age >= 25 && pops.age < 35 ) dadsave = 0.08;
-        if (pops.age >= 35 && pops.age < 61 ) dadsave = 0.15;
-
-        values[2] = moms.income * momsave + dadsave * pops.income;
+        //Total Savings including dad's savings percent
+        values[2] = totalSavings(moms,pops);
 
         return values;
     }  
+    
+    //Calculate Household Income
+    private double householdIncome(Mother mom, Father pop) {
+    	return mom.income + pop.income;
+    }
+    //Calculating Savings after expenditure
+    private double totalSavings(Mother mom, Father pop) {
+    	 //Savings
+        double momSavingsPercent = calculateSavings(mom.age);
+        double dadSavingsPercent = calculateSavings(pop.age);
+        return mom.income * momSavingsPercent + dadSavingsPercent * pop.income;
+    }
+    //Calculating Savings
+    private double calculateSavings(int age) {
+        if (age < 25) return 0.05;
+        else if (age < 35 ) return 0.08;
+        else return 0.15;
+    }
 }
