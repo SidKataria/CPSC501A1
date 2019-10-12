@@ -4,7 +4,6 @@
  */
 public class Father extends Parent {
 
-
     public Father (double [] stats) {
         super(stats, "dad");
     }
