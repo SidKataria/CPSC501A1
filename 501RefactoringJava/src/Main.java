@@ -4,14 +4,16 @@
  * A java program to calculate housing statistics based on fathers and mothers salaries and expenditures
  */
 import java.util.Scanner;
-
+//Main Class
 public class Main {
 	
+	//Initialising local variables
 	private static double maxIncome, maxAfterExp, maxSavings = 0;
 	private static double [] firstHouse = {35, 50000, 3000, 55, 100, 36, 60000, 5000, 22, 70, 0.1};
 	private static double [] secondHouse = {59, 25000, 1500, 25, 110, 62, 30000, 1000, 28, 80, 0.5};
 	private static double [] thirdHouse = {22, 35000, 2000, 35, 105, 25, 40000, 3000, 25, 28, 0.25};
 
+	//Main method that calls other methods and outputs the answer
 	public static void main (String[] args) {
 
 		//Check input from user before continuing 
@@ -25,12 +27,18 @@ public class Main {
         
         Family house3 = new Family();
         double[] house3Stats = house3.makeFamily(thirdHouse);
-
+        //Calling Methods and printing results
         greatestIncome(house1Stats, house2Stats, house3Stats);
         greatestIncomeAfterSavings(house1Stats, house2Stats, house3Stats);
         greatestSavings(house1Stats, house2Stats, house3Stats);
     }
 	
+	/**
+	 * Method to calculate greatest Income and print it
+	 * @param house1 first house statistics
+	 * @param house2 second house statistics
+	 * @param house3 third house statistics
+	 */
 	public static void greatestIncome(double [] house1, double [] house2, double [] house3) {
         //Greatest house income 
         if (house1[0] > 0 && house1[0] >= house2[0]) 
@@ -41,6 +49,12 @@ public class Main {
             maxIncome = house3[0];
         System.out.println("Greatest income: " + maxIncome);
 	}
+	/**
+	 * Method to calculate the greatest income of a house after Expenditures and savings
+	 * @param house1 first house statistics
+	 * @param house2 second house statistics
+	 * @param house3 third house statistics
+	 */
 	public static void greatestIncomeAfterSavings(double [] house1, double [] house2, double [] house3) {
 		 //Greatest income after expenditure
         if (house1[1] > 0 && house1[1] >= house2[1]) 
@@ -51,6 +65,12 @@ public class Main {
             maxAfterExp = house3[1];     
         System.out.println("After savings: " + maxAfterExp);
 	}
+	/**
+	 * Method to calculate the greatest savings of a house
+	 * @param house1 first house statistics
+	 * @param house2 second house statistics
+	 * @param house3 third house statistics
+	 */
 	public static void greatestSavings(double [] house1, double [] house2, double [] house3) {
 		//Greatest savings
         if (house1[2] > 0 && house1[2] >= house2[2]) 
@@ -63,6 +83,9 @@ public class Main {
         System.out.println("savings: " + maxSavings);
 	}
 	
+	/**
+	 * Method to check if the user wishes to continue with the program
+	 */
 	public static void checkFromUser() {
 		if (askUser("Please type y to execute program and any other key to stop").contentEquals("y")) {
 			System.out.println("Continuing");

@@ -1,8 +1,14 @@
-
+/***
+ * Name: Siddharth Kataria
+ * UCID: 30000880
+ * A java program to calculate housing statistics based on fathers and mothers salaries and expenditures
+ */
 public abstract class Parent {
+	//Declaring variables
     protected int age;
     protected double income, finalIncome, expenditure1, expenditure2, expenditure3, savingsPercent;
     
+    //Class Constructor
     public Parent(double [] stats, String parent) {
     	if (parent.contentEquals("mom")) {
     		this.age = (int) stats[0];
